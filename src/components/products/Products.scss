@@ -1,0 +1,12 @@
+.products-container{
+    width: 50%;
+    height: 80vh;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+
+    .products-cards{
+        border: 1px solid black;
+    }
+}
