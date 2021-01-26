@@ -118,7 +118,7 @@ const reducer = ( state = initialState, action ) => {
     if(action.type === actions.NAME){
         return{
             ...state,
-            user: {...state.user, name:action.name, email:action.email}
+            user: {...state.user, name:action.name }
         }
     }
     if(action.type === actions.EMAIL){
