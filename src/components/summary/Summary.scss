@@ -1,0 +1,29 @@
+.summary-container{
+    border: 1px solid black;
+    
+    .summary-contant{            
+        .summary-bag{
+            margin: auto 100px;
+        }
+        .summary-row{
+            width: 600px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            img{
+                width: 75px;
+                height: 50px;
+            }
+        }
+        .summary-element{
+            width: 300px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-left: 100px;
+        }
+        .summary-user{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

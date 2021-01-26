@@ -1,7 +1,6 @@
 import React from 'react'
 import './Checkout.scss';
 
-
 import { connect } from 'react-redux';
 import UserDetails from '../userDetails/UserDetails';
 import { CHECKOUT } from '../../store/actions';
@@ -33,21 +32,17 @@ function Checkout({ bagItems, total, discount, dis_checkout }) {
                     </tr>
                 </tbody>
             ))}
-            </table>
-                
+            </table> 
             </div>   
                 <div className="checkout-total">
                     {/* <div className="checkout-discount">
                         <p>Discount:</p>
                         <p>{discount} EURO</p>
                     </div> */}
-                    
                     <div className="checkout-discount">
                         <p>Total:</p>
                         <p>{total} EURO</p>
                     </div>
-                        
-                    
                 </div>
                 </div>
                 <div className="inputs">
@@ -56,6 +51,7 @@ function Checkout({ bagItems, total, discount, dis_checkout }) {
         </div>
     )
 }
+
 const mapStateToProps = (state) =>{
     return{
         bagItems: state.bagItems,
@@ -63,9 +59,11 @@ const mapStateToProps = (state) =>{
         discount: state.discount
     }
 }
+
 const mapDispatchToProps = (dispatch) =>{
     return{
         dis_checkout: () => dispatch({ type: CHECKOUT })
     }
 }
+
 export default connect(mapStateToProps,mapDispatchToProps)(Checkout)

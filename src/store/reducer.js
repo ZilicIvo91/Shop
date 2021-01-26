@@ -8,12 +8,7 @@ const initialState = {
     total: 0,
     discount:0,
     checkout:false,
-    name:"",
-    email:"",
-    address:"",
-    city:"",
-    cardType:"",
-    cardNumber:""
+    user: {}
 }
 
 
@@ -123,37 +118,37 @@ const reducer = ( state = initialState, action ) => {
     if(action.type === actions.NAME){
         return{
             ...state,
-            name: action.name,
+            user: {...state.user, name:action.name, email:action.email}
         }
     }
     if(action.type === actions.EMAIL){
         return{
             ...state,
-            email: action.email,
+            user: {...state.user, email:action.email}
         }
     }
     if(action.type === actions.ADDRESS){
         return{
             ...state,
-            address: action.address,
+            user: {...state.user, address: action.address}
         }
     }
     if(action.type === actions.CITY){
         return{
             ...state,
-            city: action.city,
+            user: {...state.user, city: action.city}
         }
     }
     if(action.type === actions.CARD_TYPE){
         return{
             ...state,
-            cardType: action.cardType,
+            user: {...state.user, cardType: action.cardType}
         }
     }
     if(action.type === actions.CARD_NUMBER){
         return{
             ...state,
-            cardNumber: action.cardNumber,
+            user: {...state.user, cardNumber: action.cardNumber}
         }
     }
 

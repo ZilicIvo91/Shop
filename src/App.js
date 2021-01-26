@@ -8,6 +8,7 @@ import Products from './components/products/Products';
 import { connect } from 'react-redux';
 
 import Checkout from './components/checkout/Checkout';
+import Summary from './components/summary/Summary';
 
 
 
@@ -25,7 +26,9 @@ function App({ checkout }) {
                   <Products />
                   <Bag />
                 </>}
+                
           </div>
+              <Summary />
           <div>
           
          
