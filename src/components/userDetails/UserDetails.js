@@ -1,14 +1,14 @@
 import React from 'react';
+import './UserDetails.scss';
 import { connect } from 'react-redux';
 import { NAME, EMAIL,ADDRESS, CARD_TYPE, CARD_NUMBER, CITY } from '../../store/actions';
-import './UserDetails.scss';
+import { Link } from 'react-router-dom';
 
 
 function UserDetails({ name_dis, cardNumber_dis, cardType_dis, city_dis, address_dis, email_dis, user }) {
     return (
         <div className="userDetails-container">
             <div>
-            <h1>User Details</h1>
              <form>
                 <div className="userDetails">
                     <div className="userDetails">
@@ -64,9 +64,9 @@ function UserDetails({ name_dis, cardNumber_dis, cardType_dis, city_dis, address
                                 value={user.cardNumber}
                                 onChange={(e) => cardNumber_dis(e.target.value)} />
                     </div>  
-                   <input 
-                        type="submit" 
-                        value="Send" />
+                   <button>
+                        <Link to='/summary'>Go to summary</Link>
+                    </button> 
                     </div>            
                 </form>
             </div>

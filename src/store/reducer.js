@@ -7,7 +7,6 @@ const initialState = {
     bagItems: [],
     total: 0,
     discount:0,
-    checkout:false,
     user: {}
 }
 
@@ -105,13 +104,6 @@ const reducer = ( state = initialState, action ) => {
         return {
             ...state,
             total:discount
-        }
-    }
-
-    if(action.type === actions.CHECKOUT){
-        return{
-            ...state,
-            checkout: !state.checkout
         }
     }
 

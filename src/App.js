@@ -1,47 +1,28 @@
 import './App.scss';
-import Bag from './components/bag/Bag';
 import Header from './components/header/Header';
-import Products from './components/products/Products';
 
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-
-import { connect } from 'react-redux';
-
-import Checkout from './components/checkout/Checkout';
 import Summary from './components/summary/Summary';
+import Checked from './components/checked/Checked';
+import BuyCard from './components/buyCard/BuyCard';
 
 
 
-function App({ checkout }) {
+function App() {
   
   return (
-    
       <div className="App">
-      
-        <Header />
-          <div className="app-main">
-              {checkout 
-              ? <Checkout />
-              : <> 
-                  <Products />
-                  <Bag />
-                </>}
-                
-          </div>
-              <Summary />
-          <div>
-          
-         
-          </div>
-      
+        <BrowserRouter>
+          <Header />
+          <Switch>
+            <Route path='/summary' component={Summary} />
+            <Route path='/checked' component={Checked} />
+            <Route path='/' component={BuyCard} />
+          </Switch>
+        </BrowserRouter>
       </div>
   );
 }
 
-const mapStateToProps = (state) => {
-  return{
-    checkout: state.checkout
-  }
-}
-
-export default connect(mapStateToProps)(App)
+export default App

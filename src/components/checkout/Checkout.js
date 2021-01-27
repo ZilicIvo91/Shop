@@ -2,16 +2,16 @@ import React from 'react'
 import './Checkout.scss';
 
 import { connect } from 'react-redux';
-import UserDetails from '../userDetails/UserDetails';
-import { CHECKOUT } from '../../store/actions';
+import { Link } from 'react-router-dom';
 
 
-function Checkout({ bagItems, total, discount, dis_checkout }) {    
+function Checkout({ bagItems, total, discount }) {    
     return (
         <div className="checkout-container">
             <div className="checkout">
-            <h1>Checkout</h1>
-            <button className="button-goToBag" onClick={() => dis_checkout()}>Edit Bag</button>
+            <button className="button-goToBag">
+                <Link to='/'>Edit bag</Link>
+            </button>
             <div className="table">
             <table>
                 <thead> 
@@ -45,9 +45,6 @@ function Checkout({ bagItems, total, discount, dis_checkout }) {
                     </div>
                 </div>
                 </div>
-                <div className="inputs">
-                   <UserDetails />
-                </div>
         </div>
     )
 }
@@ -60,10 +57,5 @@ const mapStateToProps = (state) =>{
     }
 }
 
-const mapDispatchToProps = (dispatch) =>{
-    return{
-        dis_checkout: () => dispatch({ type: CHECKOUT })
-    }
-}
 
-export default connect(mapStateToProps,mapDispatchToProps)(Checkout)
+export default connect(mapStateToProps)(Checkout)

@@ -1,16 +1,16 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Bag.scss';
 
 import { GiTrashCan } from 'react-icons/gi';
-import { TOTAL, DISCOUNT_20, DISCOUNT_5, DISCOUNT_20EUR, CHECKOUT } from '../../store/actions';
+import { TOTAL, DISCOUNT_20, DISCOUNT_5, DISCOUNT_20EU } from '../../store/actions';
 
 import { connect } from 'react-redux';
 import { add, remove,dec } from '../../store/actions';
+import { Link } from 'react-router-dom';
 
 
-function Bag({ bagItems, add, remove, dec, total, discount, total_dis, discount20_dis,discount5_dis,discount_20EUR_dis, dis_checkout }) {
+function Bag({ bagItems, add, remove, dec, total, discount, total_dis, discount20_dis,discount5_dis,discount_20EUR_dis }) {
    
-    const [state, setstate] = useState(false);
 
     useEffect(() => {
         total_dis()
@@ -31,7 +31,7 @@ function Bag({ bagItems, add, remove, dec, total, discount, total_dis, discount2
 
     return (
         <div className="bag-container">
-            <h1>Bag</h1>
+            <h1>My Bag</h1>
 
             <div>
                 {bagItems.length === 0 && <div>Bag is Empty</div>}
@@ -81,8 +81,8 @@ function Bag({ bagItems, add, remove, dec, total, discount, total_dis, discount2
             </div> */}
             <h1 className="total">TOTAL: {total} EUR</h1>
 
-            <button className="button-goToCheck" onClick={() => dis_checkout()}>
-                Go to checkout
+            <button className="button-goToCheck">
+                <Link to='checked'>Go to checkout</Link>
             </button>
         </div>
     )
@@ -103,8 +103,7 @@ const mapDispatchToProps = dispatch => {
         total_dis : () => dispatch({ type:TOTAL }),
         discount20_dis : () => dispatch({ type:DISCOUNT_20 }),
         discount5_dis : () => dispatch({ type:DISCOUNT_5 }),
-        discount_20EUR_dis : () => dispatch({ type:DISCOUNT_20EUR }),
-        dis_checkout : () => dispatch({ type:CHECKOUT }),
+        discount_20EUR_dis : () => dispatch({ type:DISCOUNT_20EUR })
     }
 }
 
