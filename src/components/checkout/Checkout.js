@@ -23,7 +23,7 @@ function Checkout({ bagItems, total, discount }) {
                     </tr>
                 </thead>
                 {bagItems.map(item =>(     
-                <tbody>
+                <tbody key={item.id}>
                     <tr>
                         <th><img src={item.src} alt={item.title} style={{ width:"100px"}} /></th>
                         <th>{item.name}</th>

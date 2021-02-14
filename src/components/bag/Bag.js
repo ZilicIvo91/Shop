@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+// import React, { useState } from 'react';
 import './Bag.scss';
 
 import { GiTrashCan } from 'react-icons/gi';
-import { TOTAL, DISCOUNT_20, DISCOUNT_5, DISCOUNT_20EU } from '../../store/actions';
+import { TOTAL, DISCOUNT_20 } from '../../store/actions';
+// import { DISCOUNT_5, DISCOUNT_20EU } from '../../store/actions';
 
 import { connect } from 'react-redux';
 import { add, remove,dec } from '../../store/actions';
@@ -11,22 +13,22 @@ import { Link } from 'react-router-dom';
 
 function Bag({ bagItems, add, remove, dec, total, discount, total_dis, discount20_dis,discount5_dis,discount_20EUR_dis }) {
    
-
+    
     useEffect(() => {
         total_dis()
       }, [bagItems])
 
-    const discount20 = () => {
-        discount20_dis();
-        setstate(!state)
-    }
+    // const discount20 = () => {
+    //     discount20_dis();
+    //     setstate(!state)
+    // }
 
-    const discount5 = () => {
-        discount5_dis();
-    }
-    const discount_20EUR = () => {
-        discount_20EUR_dis();
-    }
+    // const discount5 = () => {
+    //     discount5_dis();
+    // }
+    // const discount_20EUR = () => {
+    //     discount_20EUR_dis();
+    // }
     
 
     return (
@@ -102,8 +104,8 @@ const mapDispatchToProps = dispatch => {
         remove: (id) => dispatch(remove(id)),
         total_dis : () => dispatch({ type:TOTAL }),
         discount20_dis : () => dispatch({ type:DISCOUNT_20 }),
-        discount5_dis : () => dispatch({ type:DISCOUNT_5 }),
-        discount_20EUR_dis : () => dispatch({ type:DISCOUNT_20EUR })
+        // discount5_dis : () => dispatch({ type:DISCOUNT_5 }),
+        // discount_20EUR_dis : () => dispatch({ type:DISCOUNT_20EUR })
     }
 }
 
